@@ -17,5 +17,6 @@ class RecipeSerializer(serializers.ModelSerializer):
         ingredients_data = validated_data.pop('ingredients')
         recipe = Recipe.objects.create(**validated_data)
         for ingredient_data in ingredients_data:
-            Ingredient.objects.create(recipe=recipe, **ingredient_data)
+            ingredient = Ingredient.objects.create(**ingredient_data)
+            recipe.ingredients.add(ingredient)
         return recipe

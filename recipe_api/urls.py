@@ -1,10 +1,7 @@
-from django.urls import path, include
-from rest_framework import routers
-from . import views
-
-router = routers.DefaultRouter()
-router.register('', views.RecipeViewSet)
+from django.urls import path
+from .views import *
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('', RecipeListCreateAPIView.as_view(), name='recipe-list'),
+    path('<int:id>', RecipeRetrieveUpdateDestroyAPIView.as_view(), name='recipe-detail')
 ]
