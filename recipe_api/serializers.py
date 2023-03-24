@@ -2,9 +2,14 @@ from rest_framework import serializers
 from recipe.models import Recipe, Ingredient
 
 class IngredientSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Ingredient
         fields = ['id', 'name', 'quantity']
+    
+    def create(self, validated_data):
+        # handle single object instead of list
+        return Ingredient.objects.create(**validated_data)
 
 class RecipeSerializer(serializers.ModelSerializer):
     ingredients = IngredientSerializer(many=True)
@@ -14,7 +19,7 @@ class RecipeSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'description', 'ingredients', 'instructions', 'created_at', 'updated_at']
 
     def create(self, validated_data):
-        print(validated_data.keys())
+        print('### RecipeSerializer - create ###')
         ingredients_data = validated_data.pop('ingredients')
         recipe = Recipe.objects.create(**validated_data)
         for ingredient_data in ingredients_data:
