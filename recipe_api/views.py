@@ -1,4 +1,5 @@
 from rest_framework import generics
+from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from recipe.models import Recipe, Ingredient
 from .serializers import RecipeSerializer, IngredientSerializer
@@ -11,6 +12,11 @@ class RecipeRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
     lookup_field = 'id'
+
+class IngredientListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Ingredient.objects.all()
+    serializer_class = RecipeSerializer
+    lookup_field = 'recipe_id'
 
 class IngredientRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Ingredient.objects.all()
