@@ -8,13 +8,13 @@ def recipe_object():
         quantity="1/2 cup"
     )
     recipe = Recipe.objects.create(
-        id=1,
         name="Pancakes",
         description="A classic breakfast dish",
         instructions="Mix ingredients and cook on griddle"
     )
     recipe.ingredients.add(ingredient)
     return recipe
+
 
 @pytest.fixture
 def recipe_json():
@@ -45,3 +45,12 @@ def invalid_recipe_json():
         ],
         "instructions": "Mix ingredients and cook on griddle"
     }
+
+
+@pytest.fixture
+def ingredient_json():
+    return {"name": "Milk", "quantity": "1 cup"}
+
+@pytest.fixture
+def invalid_ingredient_json():
+    return {"": "Milk", "": "1 cup"}

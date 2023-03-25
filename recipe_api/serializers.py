@@ -10,6 +10,13 @@ class IngredientSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         # handle single object instead of list
         return Ingredient.objects.create(**validated_data)
+    
+    def validate(self, data):
+        if not data.get('name'):
+            raise serializers.ValidationError('Name field is required')
+        if not data.get('quantity'):
+            raise serializers.ValidationError('Quantity field is required')
+        return data
 
 class RecipeSerializer(serializers.ModelSerializer):
     ingredients = IngredientSerializer(many=True)
