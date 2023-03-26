@@ -26,8 +26,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Set DJANGO_SETTINGS_MODULE environment variable
+      run: echo "export DJANGO_SETTINGS_MODULE=recipes-django-api.settings" >> $GITHUB_ENV
+    - name: Run Tests
       run: |
-        echo "export DJANGO_SETTINGS_MODULE=recipes-django-api.settings" >> $GITHUB_ENV
-        - name: Run Tests
-          run: |
-            pytest
+        pytest
