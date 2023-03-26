@@ -1,0 +1,122 @@
+openapi: "3.0.0"
+info:
+  version: "1.0.0"
+  title: "Recipes API"
+  description: "API for managing recipes and ingredients."
+  contact:
+    name: "Your Name"
+    email: "your.email@example.com"
+paths:
+  /api/recipes:
+    get:
+      summary: "Get all Recipes"
+      responses:
+        "200":
+          description: "Returns a list of all recipes."
+    post:
+      summary: "Create Recipe"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "Pancakes"
+                description:
+                  type: string
+                  example: "A classic breakfast dish"
+            required:
+              - name
+      responses:
+        "201":
+          description: "Recipe created successfully."
+  /api/recipes/{id}:
+    get:
+      summary: "Get Recipe by ID"
+      parameters:
+        - in: path
+          name: id
+          description: "ID of the recipe to retrieve."
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: "Returns the specified recipe."
+    delete:
+      summary: "Delete Recipe by ID"
+      parameters:
+        - in: path
+          name: id
+          description: "ID of the recipe to delete."
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: "Recipe deleted successfully."
+  /api/recipes/{id}/ingredients:
+    get:
+      summary: "Get Recipe Ingredients by ID"
+      parameters:
+        - in: path
+          name: id
+          description: "ID of the recipe to retrieve ingredients for."
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: "Returns a list of ingredients for the specified recipe."
+    post:
+      summary: "Add Ingredient"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "Sugar"
+                quantity:
+                  type: string
+                  example: "1/2 cup"
+            required:
+              - name
+              - quantity
+      responses:
+        '201':
+          description: "The added ingredient"
+  /api/recipes/{id}/ingredients/{ingredientId}:
+    patch:
+      summary: "Update Recipe Ingredient"
+      parameters:
+        - in: path
+          name: id
+          description: "ID of the recipe to update ingredient for."
+          required: true
+          schema:
+            type: integer
+        - in: path
+          name: ingredientId
+          description: "The ID of the ingredient to update"
+          required: true
+          schema:
+            type: integer
+        - in: body
+          name: body
+          description: "The ingredient data to update"
+          required: true
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+      responses:
+        '200':
+          description: "The updated ingredient"
