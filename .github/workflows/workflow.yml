@@ -31,8 +31,5 @@ jobs:
     - name: Set DJANGO_SETTINGS_MODULE environment variable
       run: echo "export DJANGO_SETTINGS_MODULE=core.settings" >> $GITHUB_ENV
 
-    - name: Show DJANGO_SETTINGS_MODULE value
-      run: echo $DJANGO_SETTINGS_MODULE
-
     - name: Run Tests
       run: pytest
