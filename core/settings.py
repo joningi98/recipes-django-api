@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-r$4$=(r7&pwk8p&58btm+)(az=te&*j+=rsoaw9=+637plp=pi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-recipe-api.herokuapp.com']
 
 
 # Application definition
