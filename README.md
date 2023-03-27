@@ -58,7 +58,3 @@ The project is already set up to be deployed to Heroku. Follow these steps to de
 4.  Push the code to the Heroku app's git repository: `git push heroku main`
 5.  Run migrations: `heroku run python manage.py migrate`
 6.  The app should be running at the URL provided by Heroku.
-
-### Documentation
-
-API documentation is available via Swagger. To access the documentation, start the server and navigate to [http://localhost:8000/swagger/](http://localhost:8000/swagger/) in your browser.
