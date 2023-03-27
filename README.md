@@ -13,13 +13,6 @@ This is a Django-based RESTful API that provides endpoints for creating, reading
 
 ## Endpoints
 
-### Users
-
--   `POST /api/user/create/`: Creates a new user.
--   `POST /api/user/token/`: Retrieves an authentication token for a user.
--   `PATCH /api/user/me/`: Updates the authenticated user's profile.
--   `GET /api/user/me/`: Retrieves the authenticated user's profile.
-
 ### Recipes
 
 -   `GET /api/recipe/`: Retrieves all recipes.
