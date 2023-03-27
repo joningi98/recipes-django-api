@@ -28,8 +28,6 @@ This is a Django-based RESTful API that provides endpoints for creating, reading
 -   `PUT /api/recipe/{id}/`: Updates a specific recipe.
 -   `PATCH /api/recipe/{id}/`: Partially updates a specific recipe.
 -   `DELETE /api/recipe/{id}/`: Deletes a specific recipe.
--   `GET /api/recipe/{id}/upload_image/`: Retrieves the image associated with a specific recipe.
--   `POST /api/recipe/{id}/upload_image/`: Uploads an image for a specific recipe.
 
 ## Usage
 
