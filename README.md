@@ -14,13 +14,18 @@ This is a Django-based RESTful API that provides endpoints for creating, reading
 ## Endpoints
 
 ### Recipes
+-   `GET /api/recipes/`: Retrieves all recipes.
+-   `GET /api/recipes/{id}/`: Retrieves a specific recipe.
+-   `POST /api/recipes/`: Creates a new recipe.
+-   `PUT /api/recipes/{id}/`: Updates a specific recipe.
+-   `PATCH /api/recipes/{id}/`: Partially updates a specific recipe.
+-   `DELETE /api/recipes/{id}/`: Deletes a specific recipe.
 
--   `GET /api/recipe/`: Retrieves all recipes.
--   `GET /api/recipe/{id}/`: Retrieves a specific recipe.
--   `POST /api/recipe/`: Creates a new recipe.
--   `PUT /api/recipe/{id}/`: Updates a specific recipe.
--   `PATCH /api/recipe/{id}/`: Partially updates a specific recipe.
--   `DELETE /api/recipe/{id}/`: Deletes a specific recipe.
+### Ingredients
+- `GET /api/recipes/{id}/ingredients/`: Retrieves all ingredients for a specific recipe.
+- `POST /api/recipes/{id}/ingredients/`: Adds a new ingredient to a specific recipe.
+- `PATCH /api/recipes/{id}/ingredients/{ingredient_id}/`: Updates a specific ingredient for a specific recipe.
+- `DELETE /api/recipes/{id}/ingredients/{ingredient_id}/`: Deletes a specific ingredient for a specific recipe.
 
 ## Usage
 
