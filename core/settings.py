@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'django-recipe-api.herokuapp.com',
-    'https://djangorecipeapi-joningi17201.b4a.run/'
+    'djangorecipeapi-joningi17201.b4a.run'
 ]
 
 
