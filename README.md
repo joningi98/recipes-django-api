@@ -46,11 +46,12 @@ The project is already set up to be deployed to Heroku. Follow these steps to de
 1.  Create a new Heroku app.
 2.  Provision a PostgreSQL database add-on.
 3.  Set the following environment variables:
-    -   `DJANGO_SECRET_KEY`: Django's secret key.
-    -   `DATABASE_URL`: The database URL provided by the Heroku PostgreSQL add-on.
-    -   `AWS_ACCESS_KEY_ID`: Access key for AWS S3 (only needed for file uploads).
-    -   `AWS_SECRET_ACCESS_KEY`: Secret access key for AWS S3 (only needed for file uploads).
-    -   `AWS_STORAGE_BUCKET_NAME`: The name of the S3 bucket to store files in (only needed for file uploads).
+    -   DB_NAME: the name of your PostgreSQL database.
+    -   DB_USER: the username to access your PostgreSQL database.
+    -   DB_PASSWORD: the password to access your PostgreSQL database.
+    -   DB_HOST: the hostname or IP address of your PostgreSQL server.
+    -   DB_PORT: the port number of your PostgreSQL server.
+    -   DATABASE_URL: a URL that includes the above variables in the format postgres://DB_USER:DB_PASSWORD@DB_HOST:DB_PORT/DB_NAME
 4.  Push the code to the Heroku app's git repository: `git push heroku main`
 5.  Run migrations: `heroku run python manage.py migrate`
 6.  The app should be running at the URL provided by Heroku.
